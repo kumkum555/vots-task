@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tree with Text</title>
+  <style>
+    .tree {
+      width: 0;
+      height: 0;
+      border-left: 75px solid transparent;
+      border-right: 75px solid transparent;
+      border-bottom: 150px solid green;
+      position: relative;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .tree-text {
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .trunk {
+      width: 70px;
+      height: 70px;
+      background-color: red;
+      margin: 0 auto;
+    }
+
+    body {
+      background-color: white;
+      padding-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tree">
+    <div class="tree-text">VOTS</div>
+  </div>
+  <div class="trunk"></div>
+
+</body>
+</html>
