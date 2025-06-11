@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fixed Radar with Frame</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: radial-gradient(circle, #ffffff, #cfcfcf);
+        }
+
+        .radar-wrapper {
+            position: relative;
+            width: 90vmin;
+            height: 90vmin;
+            max-width: 400px;
+            max-height: 400px;
+        }
+
+        .frame-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 15px solid rgb(124, 129, 124);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .radar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            background: radial-gradient(circle at center, #002200 0%, #000000 100%);
+            z-index: 1;
+        }
+
+        .radar::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(rgba(255, 255, 255, 0.6) 3deg,
+                    rgb(0, 255, 0) 2deg,
+                    transparent 60deg);
+            animation: rotate 2s linear infinite;
+            z-index: 3;
+        }
+
+        .grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        .circle {
+            position: absolute;
+            border: 5px solid rgba(241, 243, 203, 0.747);
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(0, 255, 0, 0.3);
+        }
+
+        /* Responsive Circle Sizes */
+        .circle1 {
+            top: 49.5%;
+            left: 49.5%;
+            width: 1%;
+            height: 1%;
+        }
+
+        .circle2 {
+            top: 38%;
+            left: 38%;
+            width: 24%;
+            height: 24%;
+        }
+
+        .circle3 {
+            top: 31%;
+            left: 31%;
+            width: 38%;
+            height: 38%;
+        }
+
+        .circle4 {
+            top: 25%;
+            left: 25%;
+            width: 50%;
+            height: 50%;
+        }
+
+        .circle5 {
+            top: 19%;
+            left: 19%;
+            width: 62%;
+            height: 62%;
+        }
+
+        .circle6 {
+            top: 13%;
+            left: 13%;
+            width: 74%;
+            height: 74%;
+        }
+
+        .circle7 {
+            top: 7%;
+            left: 7%;
+            width: 86%;
+            height: 86%;
+        }
+
+        .circle8 {
+            top: 1%;
+            left: 1%;
+            width: 98%;
+            height: 98%;
+        }
+
+        .line {
+            position: absolute;
+            width: 2px;
+            height: 50%;
+            top: 50%;
+            left: 50%;
+            transform-origin: top center;
+            background: linear-gradient(to bottom, transparent, rgba(0, 255, 0, 0.7));
+            z-index: 3;
+        }
+
+        /* 8 lines around radar */
+        .line1 {
+            transform: rotate(0deg);
+        }
+
+        .line2 {
+            transform: rotate(45deg);
+        }
+
+        .line3 {
+            transform: rotate(90deg);
+        }
+
+        .line4 {
+            transform: rotate(135deg);
+        }
+
+        .line5 {
+            transform: rotate(180deg);
+        }
+
+        .line6 {
+            transform: rotate(225deg);
+        }
+
+        .line7 {
+            transform: rotate(270deg);
+        }
+
+        .line8 {
+            transform: rotate(315deg);
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="radar-wrapper">
+        <div class="frame-circle"></div>
+        <div class="radar">
+            <div class="grid">
+                <!-- Circles -->
+                <div class="circle circle1"></div>
+                <div class="circle circle2"></div>
+                <div class="circle circle3"></div>
+                <div class="circle circle4"></div>
+                <div class="circle circle5"></div>
+                <div class="circle circle6"></div>
+                <div class="circle circle7"></div>
+                <div class="circle circle8"></div>
+
+                <!-- Lines -->
+                <div class="line line1"></div>
+                <div class="line line2"></div>
+                <div class="line line3"></div>
+                <div class="line line4"></div>
+                <div class="line line5"></div>
+                <div class="line line6"></div>
+                <div class="line line7"></div>
+                <div class="line line8"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
